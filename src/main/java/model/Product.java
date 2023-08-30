@@ -6,12 +6,14 @@ public class Product implements Serializable {
 	private String name;
 	private String price;
 	private String updated;
+	
 	public Product() {}
-	public Product(String name, String price, String updated) {
+	public Product(String name,String price,String updated) {
 		this.name = name;
 		this.price = price;
 		this.updated = updated;
 	}
+
 	public String getName() {
 		return name;
 	}
