@@ -51,6 +51,7 @@ public class Main extends HttpServlet {
 			request.setAttribute("msg", "1件登録しました。");
 		}
 		doGet(request, response);
+		doGet(request, response);
 	}
 
 }
