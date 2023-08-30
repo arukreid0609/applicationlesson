@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Dao;
 import model.Product;
 
 @WebServlet("/Main")
@@ -21,6 +22,8 @@ public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Dao dao = new Dao();
+		dao.checkConnect();
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/main.jsp");
 		rd.forward(request, response);
 	}
@@ -50,7 +53,6 @@ public class Main extends HttpServlet {
 			application.setAttribute("list", list);
 			request.setAttribute("msg", "1件登録しました。");
 		}
-		doGet(request, response);
 		doGet(request, response);
 	}
 
