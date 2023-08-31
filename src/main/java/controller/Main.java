@@ -21,6 +21,13 @@ public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ProductsDAO dao = new ProductsDAO();
+//		dao.checkConnect();
+		List<Product> list = dao.findAll();
+
+		ServletContext application = this.getServletContext();
+		application.setAttribute("list", list);
+
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/main.jsp");
 		rd.forward(request, response);
 	}
@@ -46,12 +53,10 @@ public class Main extends HttpServlet {
 			
 			Product product = new Product(name,Integer.parseInt(price),updated);
 //			list.add(product);
+//			application.setAttribute("list", list);
 
 			ProductsDAO dao = new ProductsDAO();
 			dao.insertOne(product);
-			List<Product> list = dao.findAll();
-			
-			application.setAttribute("list", list);
 
 			request.setAttribute("msg", "1件登録しました。");
 		}

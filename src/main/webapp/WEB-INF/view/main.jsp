@@ -33,7 +33,11 @@ String msg = (String)request.getAttribute("msg");
 	<table border="">
 		<tr><th>製品名</th><th>価格</th><th>登録日</th></tr>
 		<% for(Product p:list){ %>
-		<tr><td><%=p.getName() %></td><td><%=p.getPrice() %></td><td><%=p.getUpdated() %></td></tr>
+		<tr>
+			<td><%=p.getName() %></td>
+			<td><%=p.getPrice() %></td>
+			<td><%=p.getUpdated() %></td>
+		</tr>
 		<% } %>
 	</table>
 	<% } %>
