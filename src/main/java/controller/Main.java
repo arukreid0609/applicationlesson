@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.Dao;
+import dao.ProductsDAO;
 import model.Product;
 
 @WebServlet("/Main")
@@ -22,7 +22,7 @@ public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Dao dao = new Dao();
+		ProductsDAO dao = new ProductsDAO();
 		dao.checkConnect();
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/main.jsp");
 		rd.forward(request, response);
@@ -47,7 +47,7 @@ public class Main extends HttpServlet {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 			String updated = sdf.format(now);
 			
-			Product product = new Product(name,price,updated);
+			Product product = new Product(name,Integer.parseInt(price),updated);
 			list.add(product);
 			
 			application.setAttribute("list", list);
