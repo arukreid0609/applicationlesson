@@ -29,7 +29,7 @@ String msg = (String)request.getAttribute("msg");
 		<input type="submit" value="登録">
 	</form>
 
-	<% if(list != null){ %>
+	<% if(!list.isEmpty()){ %>
 	<table border="">
 		<tr><th>製品名</th><th>価格</th><th>登録日</th></tr>
 		<% for(Product p:list){ %>

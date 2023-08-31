@@ -43,7 +43,6 @@ public class ProductsDAO {
 	}
 
 	public List<Product> findAll() {
-
 		List<Product> productList = new ArrayList<>();
 		try {
 			this.connect();
