@@ -158,7 +158,7 @@ public class ProductsDAO {
 	public void checkConnect() {
 		try {
 			this.connect();
-			System.out.println("OK");
+			System.out.println("データベースとの接続に成功！！");
 		} catch (NamingException | SQLException e) {
 			e.printStackTrace();
 		} finally {
