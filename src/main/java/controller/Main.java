@@ -22,7 +22,19 @@ public class Main extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String action = request.getParameter("action");
+		String id = request.getParameter("id");
+
 		ProductsDAO dao = new ProductsDAO();
+		if(action != null) {
+			if(action.equals("delete")) {
+				dao.deleteOne(Integer.parseInt(id));
+			}
+			if(action.equals("update")) {
+				// 更新処理
+			}
+		}
 		List<Product> list = dao.findAll();
 
 		ServletContext application = this.getServletContext();
