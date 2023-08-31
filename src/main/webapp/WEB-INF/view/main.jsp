@@ -37,6 +37,9 @@ String msg = (String)request.getAttribute("msg");
 			<td><%=p.getName() %></td>
 			<td><%=p.getPrice() %></td>
 			<td><%=p.getUpdated() %></td>
+			<td>
+				<a href="Main?action=delete&&id=<%=p.getId()%>">削除</a>
+			</td>
 		</tr>
 		<% } %>
 	</table>
