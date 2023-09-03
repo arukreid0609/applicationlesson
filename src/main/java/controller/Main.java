@@ -31,9 +31,6 @@ public class Main extends HttpServlet {
 			if(action.equals("delete")) {
 				dao.deleteOne(Integer.parseInt(id));
 			}
-			if(action.equals("update")) {
-				// 更新処理
-			}
 		}
 		List<Product> list = dao.findAll();
 
@@ -47,11 +44,6 @@ public class Main extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ServletContext application = this.getServletContext();
-		//		List<Product> list = (List<Product>)application.getAttribute("list");
-
-		//		if(list == null) {
-		//			list = new ArrayList<Product>();
-		//		}
 
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
@@ -65,8 +57,6 @@ public class Main extends HttpServlet {
 			String updated = sdf.format(now);
 
 			Product product = new Product(name, Integer.parseInt(price), updated);
-			//			list.add(product);
-			//			application.setAttribute("list", list);
 
 			ProductsDAO dao = new ProductsDAO();
 			dao.insertOne(product);

@@ -5,6 +5,10 @@
 List<Product> list = (List<Product>)application.getAttribute("list");
 String err = (String)request.getAttribute("err");
 String msg = (String)request.getAttribute("msg");
+String updateMsg = (String)session.getAttribute("updateMsg");
+if(updateMsg != null){
+	session.removeAttribute("updateMsg");
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -19,6 +23,9 @@ String msg = (String)request.getAttribute("msg");
 	<% } %>
 	<% if(msg != null){ %>
 	<p><%=msg %></p>
+	<% } %>
+	<% if(updateMsg != null){ %>
+	<p><%=updateMsg %></p>
 	<% } %>
 
 	<form action="Main" method="post">
@@ -38,8 +45,8 @@ String msg = (String)request.getAttribute("msg");
 			<td><%=p.getPrice() %></td>
 			<td><%=p.getUpdated() %></td>
 			<td>
-				<a href="Main?action=delete&&id=<%=p.getId()%>">削除</a>
-				<a href="Main?action=update&&id=<%=p.getId()%>">削除</a>
+				<a href="Delete?id=<%=p.getId()%>">削除</a>
+				<a href="Update?id=<%=p.getId()%>">更新</a>
 			</td>
 		</tr>
 		<% } %>
