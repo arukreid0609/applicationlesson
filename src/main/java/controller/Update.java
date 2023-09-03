@@ -60,5 +60,4 @@ public class Update extends HttpServlet {
 		// Mainへリダイレクト
 		response.sendRedirect("Main");
 	}
-
 }

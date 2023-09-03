@@ -15,9 +15,9 @@
 	</table>
 	<form action="Update" method="post">
 		製品名：<br>
-		<input type="text" name="name"><br>
+		<input type="text" name="name" value="<%=product.getName()%>"><br>
 		価格：<br>
-		<input type="number" name="price"><br>
+		<input type="number" name="price" value="<%=product.getPrice()%>"><br>
 		<input type="submit" value="更新">
 	</form>
 </body>

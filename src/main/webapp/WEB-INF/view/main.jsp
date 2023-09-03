@@ -45,7 +45,7 @@ if(updateMsg != null){
 			<td><%=p.getPrice() %></td>
 			<td><%=p.getUpdated() %></td>
 			<td>
-				<a href="Delete?id=<%=p.getId()%>">削除</a>
+				<a href="Main?action=delete&&id=<%=p.getId()%>">削除</a>
 				<a href="Update?id=<%=p.getId()%>">更新</a>
 			</td>
 		</tr>
